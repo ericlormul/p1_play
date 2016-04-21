@@ -5,9 +5,12 @@ import {ToolbarComponent} from './toolbar.component';
 import {NameListService} from '../shared/index';
 import {HomeComponent} from '../+home/index';
 import {AboutComponent} from '../+about/index';
+import {SearchComponent} from '../+search/index';
+import {CampComponent} from '../+camp/index';
+import {CampDirectoryComponent} from '../+camp_directory/index';
 
 @Component({
-  selector: 'sd-app',
+  selector: 'p1-app',
   viewProviders: [NameListService],
   templateUrl: 'app/components/app.component.html',
   directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
@@ -22,6 +25,21 @@ import {AboutComponent} from '../+about/index';
     path: '/about',
     name: 'About',
     component: AboutComponent
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: SearchComponent
+  },
+  {
+    path: '/camp_directory',
+    name: 'Camp Directory',
+    component: CampDirectoryComponent
+  },
+  {
+    path: '/camp/:id',
+    name: 'Camp',
+    component: CampComponent
   }
 ])
 export class AppComponent {}
