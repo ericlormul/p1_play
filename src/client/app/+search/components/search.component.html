@@ -2,13 +2,12 @@
 	查找感兴趣的夏令营
 </p>
 
-<form (submit)="addName()">
+<form (submit)="search(keyWord)">
   <input [(ngModel)]="keyWord" placeholder="Cilantro's camp in Seattle!">
   <button type="submit">Search</button>
 </form>
 
-<!-- use to display search result in the future
- -->
-<!-- <ul>
-  <li *ngFor="#name of nameListService.get()">{{name}}</li>
-</ul> -->
+
+<ul>
+  <li *ngFor="#camp of search_result">{{camp}}</li>
+</ul>

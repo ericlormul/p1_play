@@ -1,3 +1,4 @@
+// test won't pass, because NameListService has been removed
 import {
   TestComponentBuilder,
   describe,
