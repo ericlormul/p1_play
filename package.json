@@ -1,9 +1,9 @@
 {
-  "name": "angular2-seed",
+  "name": "p1-play",
   "version": "0.0.0",
-  "description": "Seed for Angular 2 apps",
+  "description": "vanilla version of p1",
   "repository": {
-    "url": "https://github.com/mgechev/angular2-seed"
+    "url": "https://github.com/ericlormul/p1_play"
   },
   "scripts": {
     "build.dev": "gulp build.dev --color",
@@ -31,7 +31,7 @@
     "webdriver-start": "webdriver-manager start",
     "webdriver-update": "webdriver-manager update"
   },
-  "author": "Minko Gechev <mgechev>",
+  "author": "Eric",
   "license": "MIT",
   "devDependencies": {
     "async": "^1.4.2",
