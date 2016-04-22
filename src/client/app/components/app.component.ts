@@ -7,6 +7,7 @@ import {AboutComponent} from '../+about/index';
 import {SearchComponent} from '../+search/index';
 import {CampComponent} from '../+camp/index';
 import {CampDirectoryComponent} from '../+camp_directory/index';
+import {LoginComponent} from '../+login/index';
 
 @Component({
   selector: 'p1-app',
@@ -43,6 +44,11 @@ import {CampDirectoryComponent} from '../+camp_directory/index';
     path: '/camp/:id',
     name: 'Camp',
     component: CampComponent
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginComponent
   }
 ])
 export class AppComponent {}

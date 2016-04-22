@@ -9,8 +9,10 @@ export class ProjectConfig extends SeedConfig {
     super();
     this.APP_TITLE = 'Cilantro\'s North America Sumemr Camp';
     let additional_deps: InjectableDependency[] = [
-      // {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
+      {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
+      {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
+      {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true}
     ];
 
     const seedDependencies = this.NPM_DEPENDENCIES;
