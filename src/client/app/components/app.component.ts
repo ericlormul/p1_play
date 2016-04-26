@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {ROUTER_DIRECTIVES, RouteConfig} from 'angular2/router';
+import { HTTP_PROVIDERS }    from 'angular2/http';
 import {NavbarComponent} from './navbar.component';
 import {ToolbarComponent} from './toolbar.component';
 import {HomeComponent} from '../+home/index';
@@ -12,7 +13,8 @@ import {LoginComponent} from '../+login/index';
 @Component({
   selector: 'p1-app',
   templateUrl: 'app/components/app.component.html',
-  directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent]
+  directives: [ROUTER_DIRECTIVES, NavbarComponent, ToolbarComponent],
+  providers: [HTTP_PROVIDERS]
 })
 @RouteConfig([
   {
