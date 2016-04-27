@@ -3,11 +3,24 @@
   padding: 0 16px;
 }
 
+.row.content {
+  height: 800px;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
 input {
   width: 250px;
 }
 
 ul {
   list-style-type: none;
-  padding: 0 0 0 8px;
+}
+
+a {
+  cursor: pointer;
 }
