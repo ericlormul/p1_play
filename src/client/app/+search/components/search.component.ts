@@ -25,9 +25,11 @@ export class SearchComponent {
    */
 
 	search(query: string): boolean {
-		if(!query) query = '';
-		this.campService.search(query)
-				.subscribe(camps => this.result = camps, error => this.errorMessage = <any>error);
+		if(query) {
+			this.campService.search(query)
+					.subscribe(camps => this.result = camps, error => this.errorMessage = <any>error);
+		}
+
 		return false;
 	}
 }

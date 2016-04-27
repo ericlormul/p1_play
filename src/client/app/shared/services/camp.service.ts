@@ -6,8 +6,8 @@ import {Observable}     from 'rxjs/Observable';
 
 @Injectable()
 export class CampService {
-	private _getCampUrl = 'api/camps/';
-	// private _campUrl = 'app/shared/camp.json';
+	// private _getCampUrl = 'api/camps/';
+	private _campUrl = 'app/shared/camp.json';
 
 	private _searchCampUrl = 'api/camps/search/';
 	// private _searchCampUrl = 'app/shared/camps.json';
@@ -15,17 +15,17 @@ export class CampService {
 	constructor(private http: Http) {}
 
 	//mock get
-	// getCamp(id: number): Observable<Camp> {
-	// 	return this.http.get(this._campUrl)
-	// 									.map(this.extractData)
-	// 									.catch(this.handleError);
-	// }
-
 	getCamp(id: number): Observable<Camp> {
-		return this.http.get(this._getCampUrl + id + '.json')
+		return this.http.get(this._campUrl)
 										.map(this.extractData)
 										.catch(this.handleError);
 	}
+
+	// getCamp(id: number): Observable<Camp> {
+	// 	return this.http.get(this._getCampUrl + id + '.json')
+	// 									.map(this.extractData)
+	// 									.catch(this.handleError);
+	// }
 
 	//mock search
 	// search(query: string): Observable<Camp[]> {
@@ -41,7 +41,7 @@ export class CampService {
 	}
 
 	private format_full_text_query(raw_query: string) {
-		return raw_query.trim().replace(/ +/, '+');
+		return raw_query.trim().replace(/ +/, '+').toLowerCase();
 	}
 
   private extractData(res: Response) {

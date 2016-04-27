@@ -1,23 +1,41 @@
-<div *ngIf='camp'>
-	<h2 class="text-center">{{camp.name}}</h2>
-	<div class="list-group">
-		<li class="list-group-item">
-			<img src="{{camp.pic_url}}" class="img-rounded" width="304" height="236">
-		</li>
-	  <li class="list-group-item">Camp ID: {{camp.id}}</li>
-	  <li class="list-group-item">{{camp.year}} {{camp.season}}</li>
-	  <li class="list-group-item">Category: {{camp.category}}</li>
-	  <li class="list-group-item">
-	  	Homepage:
-	  	<a target="_blank" href="{{camp.homepage}}">{{camp.homepage}}</a>
-	  </li>
-	  <li class="list-group-item">
-	  	Description
-	  	<p>{{camp.description}}</p>
-	  </li>
-	  <li class="list-group-item">Provier: {{camp.provider}}</li>
-	  <li class="list-group-item">Price: {{ camp.price | currency}}</li>
-	  <li class="list-group-item">Start Date: {{camp.start_date}}</li>
-	  <li class="list-group-item">End Date: {{camp.end_date}}</li>
-	</div>
+<div *ngIf='camp' class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>{{camp.name+ ' - ' +camp.year + ' ' + camp.season}}</h1>
+      <div>
+      	<p>
+      		<img src="{{camp.pic_url}}" class="img-rounded" width="100%" height="300">
+      	</p>
+      </div>
+      <div class="panel panel-success">
+      	<div class="panel-heading">Description</div>
+      	<div class="panel-body">
+      		<p>{{camp.description}}</p>
+      	</div>
+      </div>
+
+			<div class="panel panel-info">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Details</div>
+			  <!-- List group -->
+			  <ul class="list-group">
+				  <li class="list-group-item">Camp ID: {{camp.id}}</li>
+				  <li class="list-group-item">Category: {{camp.category}}</li>
+				  <li class="list-group-item">
+				  	Link:
+				  	<a target="_blank" href="{{camp.homepage}}">{{camp.homepage}}</a>
+				  </li>
+				  <li class="list-group-item">Provier: {{camp.provider}}</li>
+				  <li class="list-group-item">Price: {{ camp.price | currency}}</li>
+				  <li class="list-group-item">Start Date: {{camp.start_date}}</li>
+				  <li class="list-group-item">End Date: {{camp.end_date}}</li>
+			  </ul>
+			</div>
+
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
 </div>

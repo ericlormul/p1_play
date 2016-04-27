@@ -7,7 +7,7 @@
   <button type="submit">Search</button>
 </form>
 
-
+<p *ngIf="result && result.length == 0">Your search did not match any camps.</p>
 <ul class="col-md-8">
   <li *ngFor="#camp of result">
   	<a [routerLink]="['Camp', {id: camp.id}]">{{camp.name}}  -  {{camp.year}} {{camp.season}}</a>

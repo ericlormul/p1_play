@@ -11,3 +11,14 @@ ul {
   list-style-type: none;
   padding: 0 0 0 8px;
 }
+
+.container > div {
+  margin-bottom: 30px;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  height: 345px;
+  width: 100%;
+  margin: auto;
+}
