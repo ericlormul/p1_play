@@ -12,8 +12,16 @@
   </div>
 
   <div class="col-sm-9">
-    <h4><small>category information</small></h4>
-    <hr>    	
-    <p>camp records</p>
+  	<div *ngIf="campsByCategory">
+	    <h4><small>{{campsByCategory.length}} result in {{selectedCategory}}</small></h4>
+	    <hr>    	
+			<ul>
+			  <li *ngFor="#camp of campsByCategory">
+			  	<a [routerLink]="['Camp', {id: camp.id}]">{{camp.name}}  -  {{camp.year}} {{camp.season}}</a>
+			  	<div class="text-success">{{camp.homepage}}</div>
+			  	<div>{{camp.description.substring(0, 340)+'...'}}</div>
+			  </li>
+			</ul>  		
+  	</div>
   </div>
 </div>

@@ -12,8 +12,12 @@ ul {
   padding: 0 0 0 8px;
 }
 
+.container {
+  margin-bottom: 100px;
+}
+
 .container > div {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .carousel-inner > .item > img,

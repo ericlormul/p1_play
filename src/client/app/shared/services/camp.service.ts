@@ -6,26 +6,25 @@ import {Observable}     from 'rxjs/Observable';
 
 @Injectable()
 export class CampService {
-	// private _getCampUrl = 'api/camps/';
-	private _campUrl = 'app/shared/camp.json';
-
-	private _searchCampUrl = 'api/camps/search/';
+	// private _campUrl = 'app/shared/camp.json';
 	// private _searchCampUrl = 'app/shared/camps.json';
+
+	private _campApi = 'api/camps/';
 
 	constructor(private http: Http) {}
 
 	//mock get
-	getCamp(id: number): Observable<Camp> {
-		return this.http.get(this._campUrl)
-										.map(this.extractData)
-										.catch(this.handleError);
-	}
-
 	// getCamp(id: number): Observable<Camp> {
-	// 	return this.http.get(this._getCampUrl + id + '.json')
+	// 	return this.http.get(this._campUrl)
 	// 									.map(this.extractData)
 	// 									.catch(this.handleError);
 	// }
+
+	getCamp(id: number): Observable<Camp> {
+		return this.http.get(this._campApi + id + '.json')
+										.map(this.extractData)
+										.catch(this.handleError);
+	}
 
 	//mock search
 	// search(query: string): Observable<Camp[]> {
@@ -35,7 +34,13 @@ export class CampService {
 	// }
 
 	search(query: string): Observable<Camp[]> {
-		return this.http.get(this._searchCampUrl + this.format_full_text_query(query) + '.json')
+		return this.http.get(this._campApi + 'search/' + this.format_full_text_query(query) + '.json')
+										.map(this.extractData)
+										.catch(this.handleError);
+	}
+
+	get_by_category(category: string): Observable<Camp[]> {
+		return this.http.get(this._campApi + 'category/' + category + '.json')
 										.map(this.extractData)
 										.catch(this.handleError);
 	}

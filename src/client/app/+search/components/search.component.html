@@ -1,13 +1,10 @@
-<p>
-	查找感兴趣的夏令营
-</p>
-
+<br>
 <form (submit)="search(keyWord)">
   <input [(ngModel)]="keyWord" placeholder="Cilantro's camp in Seattle!">
   <button type="submit">Search</button>
 </form>
 
-<p *ngIf="result && result.length == 0">Your search did not match any camps.</p>
+<h4 *ngIf="result"><small>Found {{result.length}} results.</small></h4>
 <ul class="col-md-8">
   <li *ngFor="#camp of result">
   	<a [routerLink]="['Camp', {id: camp.id}]">{{camp.name}}  -  {{camp.year}} {{camp.season}}</a>
