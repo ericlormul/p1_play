@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {OnInit} from 'angular2/core';
 import {CampService, Camp} from '../../shared/index';
+import {RouteParams} from 'angular2/router';
 
 
 @Component({
@@ -11,15 +12,19 @@ import {CampService, Camp} from '../../shared/index';
 })
 
 export class CampComponent implements OnInit {
+	id: number;
 	camp: Camp;
 	errorMessage: string;
 
-	constructor(private _campService: CampService) {};
+	constructor(private _campService: CampService, private routeParams: RouteParams) {};
 
-	ngOnInit() { this.getCamp(); }
+	ngOnInit() {
+		this.id = Number(this.routeParams.get('id'));
+		this.getCamp();
+	}
 
 	getCamp() {
-		this._campService.getCamp(1)
+		this._campService.getCamp(this.id)
 			.subscribe(camp => this.camp = camp, error => this.errorMessage = <any>error);
 	}
 

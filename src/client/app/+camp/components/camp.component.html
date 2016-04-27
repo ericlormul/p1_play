@@ -1,4 +1,23 @@
-<p>
-	Camp details show here.
-</p>
-<p *ngIf='camp'>{{camp.name}}</p>
+<div *ngIf='camp'>
+	<h2 class="text-center">{{camp.name}}</h2>
+	<div class="list-group">
+		<li class="list-group-item">
+			<img src="{{camp.pic_url}}" class="img-rounded" width="304" height="236">
+		</li>
+	  <li class="list-group-item">Camp ID: {{camp.id}}</li>
+	  <li class="list-group-item">{{camp.year}} {{camp.season}}</li>
+	  <li class="list-group-item">Category: {{camp.category}}</li>
+	  <li class="list-group-item">
+	  	Homepage:
+	  	<a target="_blank" href="{{camp.homepage}}">{{camp.homepage}}</a>
+	  </li>
+	  <li class="list-group-item">
+	  	Description
+	  	<p>{{camp.description}}</p>
+	  </li>
+	  <li class="list-group-item">Provier: {{camp.provider}}</li>
+	  <li class="list-group-item">Price: {{ camp.price | currency}}</li>
+	  <li class="list-group-item">Start Date: {{camp.start_date}}</li>
+	  <li class="list-group-item">End Date: {{camp.end_date}}</li>
+	</div>
+</div>

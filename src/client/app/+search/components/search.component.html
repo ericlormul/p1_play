@@ -8,6 +8,10 @@
 </form>
 
 
-<ul>
-  <li *ngFor="#camp of search_result">{{camp}}</li>
+<ul class="col-md-8">
+  <li *ngFor="#camp of result">
+  	<a [routerLink]="['Camp', {id: camp.id}]">{{camp.name}}  -  {{camp.year}} {{camp.season}}</a>
+  	<div class="text-success">{{camp.homepage}}</div>
+  	<div>{{camp.description.substring(0, 340)+'...'}}</div>
+  </li>
 </ul>
