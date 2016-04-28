@@ -28,16 +28,6 @@ p {
   margin-top: 1em;
 }
 
-ul {
-  margin: 10px 0 0 0;
-  padding: 0 0 0 20px;
-}
-
-li {
-  font-weight: 400;
-  margin-top: 4px;
-}
-
 input {
   border: 1px solid #106cc8;
   font-size: 14px;
@@ -56,6 +46,10 @@ button {
   height: 40px;
   padding: 8px 18px;
   text-decoration: none;
+}
+
+a {
+  cursor: pointer;
 }
 
 button:hover {

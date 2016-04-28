@@ -9,7 +9,6 @@
 
 /* Set gray background color and 100% height */
 .sidenav {
-  background-color: white;
   height: 100%;
 }
 
@@ -22,6 +21,11 @@ ul {
   padding: 0 0 0 0;
 }
 
-a {
-  cursor: pointer;
+li a {
+  display: block;
+}
+
+li:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
 }

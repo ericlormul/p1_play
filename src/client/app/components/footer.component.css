@@ -1,14 +1,29 @@
-:host {
-  background-color: #f1f1f1;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  min-height: 40px;
-  padding: 0 16px;
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
 }
 
-div {
-  padding-top: 15px;
+footer a {
+  color: #555;
 }
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
