@@ -1,7 +1,7 @@
 <br>
-<form (submit)="search(keyWord)">
-  <input [(ngModel)]="keyWord" placeholder="Cilantro's camp in Seattle!">
-  <button type="submit">Search</button>
+<form (submit)="search(keyWord)" class="form-inline">
+  <input id='search_input' [(ngModel)]="keyWord" placeholder="Cilantro's camp in Seattle!" class="form-control">
+  <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
 <h4 *ngIf="result"><small>Found {{result.length}} results.</small></h4>

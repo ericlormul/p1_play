@@ -1,12 +1,15 @@
-<h2>Login</h2>
-<form>
+<form class="form-login">
+	<h3>Login</h3>
+	<hr>
   <div class="form-group">
-    <label for="userName">Uesr Name</label>
-    <input type="text" class="form-control" required [(ngModel)]="userName">
+    <input type="text" class="form-control" required [(ngModel)]="userName" placeholder="Username or email">
   </div>
   <div class="form-group">
-    <label for="passWord">Password</label>
-    <input type="password" class="form-control" required [(ngModel)]="passWord">
+    <input type="password" class="form-control" required [(ngModel)]="passWord" placeholder="Password">
   </div>
-  <button type="submit">Login</button>
+  <div class="form-group">
+  	<button type="submit" class='btn btn-primary'>Login</button>
+  	<a href="#" class="pull-right">Forgot Password?</a>
+  </div>
+  
 </form>
