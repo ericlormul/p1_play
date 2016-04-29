@@ -3,11 +3,13 @@ import {bootstrap} from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS, APP_BASE_HREF} from 'angular2/router';
 import 'rxjs/Rx';
 import {AppComponent} from './app/components/app.component';
+import { LoginService } from './app/shared/index';
 
 
 if ('<%= ENV %>' === 'prod') { enableProdMode(); }
 
 bootstrap(AppComponent, [
+	LoginService,
   ROUTER_PROVIDERS,
   provide(APP_BASE_HREF, { useValue: '<%= APP_BASE %>' })
 ]);

@@ -9,7 +9,7 @@ import {Observable}     from 'rxjs/Observable';
 @Injectable()
 export class CampService {
 	// private _campUrl = 'app/shared/camp.json';
-	private _searchCampUrl = 'app/shared/camps.json';
+	// private _searchCampUrl = 'app/shared/camps.json';
 
 	private _campApi = 'api/camps/';
 
@@ -36,8 +36,8 @@ export class CampService {
 	// }
 
 	search(query: string): Observable<Camp[]> {
-		// return this.http.get(this._campApi + 'search/' + this.format_full_text_query(query) + '.json')
-		return this.http.get(this._searchCampUrl)
+		return this.http.get(this._campApi + 'search/' + this.format_full_text_query(query) + '.json')
+		// return this.http.get(this._searchCampUrl)
 										.map(this.extractData)
 										.catch(this.handleError);
 	}

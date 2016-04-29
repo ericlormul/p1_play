@@ -1,11 +1,11 @@
-<form class="form-login">
+<form class="form-login" (submit)="sign_in(email, password)">
 	<h3>Login</h3>
 	<hr>
   <div class="form-group">
-    <input type="text" class="form-control" required [(ngModel)]="userName" placeholder="Username or email">
+    <input type="text" class="form-control" required [(ngModel)]="email" placeholder="email">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" required [(ngModel)]="passWord" placeholder="Password">
+    <input type="password" class="form-control" required [(ngModel)]="password" placeholder="Password">
   </div>
   <div class="form-group">
   	<button type="submit" class='btn btn-primary'>Login</button>
