@@ -10,7 +10,7 @@
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a [routerLink]="['Search']">Search</a></li>
-          <li><a [routerLink]="['Camp Directory']">Directory</a></li>
+          <li><a [routerLink]="['Program Directory']">Directory</a></li>
         </ul>
       </li>
       <li><a >About</a></li> 
@@ -26,8 +26,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown">{{loginService.getPerson().nickname}}
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a [routerLink]="['Search']">Profile</a></li>
-          <li *ngIf="loginService.getPerson().role == 'admin'"><a [routerLink]="['Camp Directory']">Admin</a></li>
+          <li><a href="#">Profile</a></li>
+          <li *ngIf="loginService.getPerson().role == 'admin'"><a [routerLink]="['PersonAdmin']">Admin</a></li>
           <li><a (click)="log_out()">Log out</a></li>
         </ul>        
       </li>

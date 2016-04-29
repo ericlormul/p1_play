@@ -11,4 +11,12 @@ export class LoginService {
 	setPerson(p:any) {
 		this.person = p;
 	}
+
+	getToken() {
+		return this.person.auth_token;
+	}
+
+	getRole() {
+		return this.person.role;
+	}
 }

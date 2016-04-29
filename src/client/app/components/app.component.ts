@@ -7,10 +7,11 @@ import {FooterComponent} from './footer.component';
 import {HomeComponent} from '../+home/index';
 import {AboutComponent} from '../+about/index';
 import {SearchComponent} from '../+search/index';
-import {CampComponent} from '../+camp/index';
-import {CampDirectoryComponent} from '../+camp_directory/index';
+import {ProgramComponent} from '../+program/index';
+import {ProgramDirectoryComponent} from '../+program_directory/index';
 import {LoginComponent} from '../+login/index';
 import {SignupComponent} from '../+signup/index';
+import {PersonAdminComponent} from '../+person/index';
 
 @Component({
   selector: 'p1-app',
@@ -40,14 +41,14 @@ import {SignupComponent} from '../+signup/index';
     component: SearchComponent
   },
   {
-    path: '/camp_directory',
-    name: 'Camp Directory',
-    component: CampDirectoryComponent
+    path: '/program_directory',
+    name: 'Program Directory',
+    component: ProgramDirectoryComponent
   },
   {
-    path: '/camp/:id',
-    name: 'Camp',
-    component: CampComponent
+    path: '/program/:id',
+    name: 'Program',
+    component: ProgramComponent
   },
   {
     path: '/login',
@@ -58,6 +59,11 @@ import {SignupComponent} from '../+signup/index';
     path: '/signup',
     name: 'Signup',
     component: SignupComponent
+  },
+  {
+    path: '/person/admin',
+    name: 'PersonAdmin',
+    component: PersonAdminComponent
   }
 ])
 export class AppComponent {}

@@ -6,9 +6,9 @@
 
 <h4 *ngIf="result"><small>Found {{result.length}} results.</small></h4>
 <ul class="col-md-8">
-  <li *ngFor="#camp of result">
-  	<a [routerLink]="['Camp', {id: camp.id}]">{{camp.name}}  -  {{camp.year}} {{camp.season}}</a>
-  	<div class="text-success">{{camp.homepage}}</div>
-  	<div>{{camp.description.substring(0, 340)+'...'}}</div>
+  <li *ngFor="#program of result">
+  	<a [routerLink]="['Program', {id: program.id}]">{{program.name}}</a>
+  	<div class="text-success">{{program.website}}</div>
+  	<div>{{program.description.substring(0, 340)+'...'}}</div>
   </li>
 </ul>	

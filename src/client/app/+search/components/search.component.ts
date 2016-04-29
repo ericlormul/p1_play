@@ -1,6 +1,5 @@
 import {Component} from 'angular2/core';
-import {Camp} from '../../shared/index';
-import {CampService} from '../../shared/index';
+import {ProgramService} from '../../shared/index';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 
@@ -9,15 +8,15 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 	templateUrl: 'app/+search/components/search.component.html',
 	styleUrls: ['app/+search/components/search.component.css'],
 	directives: [ROUTER_DIRECTIVES],
-	providers: [CampService]
+	providers: [ProgramService]
 })
 
 export class SearchComponent {
 	keyWord: string;
-	result: Camp[];
+	result: any;
 	errorMessage: string;
 
-	constructor(private campService: CampService) {}
+	constructor(private programService: ProgramService) {}
 
   /*
    * @returns return false to prevent default form submit behavior to refresh the page.
@@ -25,8 +24,8 @@ export class SearchComponent {
 
 	search(query: string): boolean {
 		if(query) {
-			this.campService.search(query)
-					.subscribe(camps => this.result = camps, error => this.errorMessage = <any>error);
+			this.programService.search(query)
+					.subscribe(programs => this.result = programs, error => this.errorMessage = <any>error);
 		}
 
 		return false;
