@@ -11,7 +11,7 @@ import { Router } from 'angular2/router';
 })
 
 export class SignupComponent {
-	person = {};
+	person = {password:'', password_confirmation:''};
 	errorMessage:string;
 
 	constructor(private authService: AuthenticationService,
@@ -19,6 +19,7 @@ export class SignupComponent {
 		private _router:Router) {}
 
 	sign_up() {
+		this.person.password_confirmation = this.person.password;
 		this.authService.sign_up(this.person)
 					.subscribe(person => {
 						this.loginService.setPerson(person);

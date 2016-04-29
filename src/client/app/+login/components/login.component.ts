@@ -13,8 +13,7 @@ import { Router } from 'angular2/router';
 })
 
 export class LoginComponent {
-	email: string;
-	password: string;
+	person = {email: '', password: ''};
 	errorMessge: string;
 
 	constructor(private authService: AuthenticationService,
@@ -22,7 +21,7 @@ export class LoginComponent {
 		private _router: Router) {}
 
 	sign_in() {
-		this.authService.sign_in(this.email, this.password)
+		this.authService.sign_in(this.person.email, this.person.password)
 					.subscribe(person => {
 						this.loginService.setPerson(person);
 						this._router.navigate(['Home']);

@@ -2,16 +2,13 @@
 	<h3>Signup</h3>
 	<hr>
   <div class="form-group">
-    <input type="text" class="form-control" required [(ngModel)]="person.nickname" placeholder="Username">
+    <input type="text" class="form-control" required [(ngModel)]="person.nickname" placeholder="Username" pattern=".{3,25}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" required [(ngModel)]="person.email" placeholder="Email address">
+    <input type="text" class="form-control" required [(ngModel)]="person.email" placeholder="Email address" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="Invalid email address">
   </div>  
   <div class="form-group">
-    <input type="password" class="form-control" required [(ngModel)]="person.password" placeholder="Password">
-  </div>
-    <div class="form-group">
-    <input type="password" class="form-control" required [(ngModel)]="person.password_confirmation" placeholder="Password Confirmation">
+    <input type="password" class="form-control" required [(ngModel)]="person.password" placeholder="Password" pattern=".{8,}" title="Eight or more characters">
   </div>
   <div class="form-group">
   	<button type="submit" class='btn btn-primary'>Sign up for Cilantro!</button>
