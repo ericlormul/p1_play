@@ -13,7 +13,8 @@ import {Router} from 'angular2/router';
 
 export class PersonAdminComponent implements OnInit {
 	errorMessage:string;
-	program ={};
+	program:any = {};
+	description: any;
 	status = {success: false, fail: false };
 
 	constructor(
@@ -25,7 +26,11 @@ export class PersonAdminComponent implements OnInit {
 		if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
 			this._router.navigate(['Home']);
 		}
-		CKEDITOR.replace('description');
+
+		let description = CKEDITOR.replace('description');
+		description.on( 'change', evt => {
+			this.program.description = evt.editor.getData();
+		});
 	}
 
 	submitProgram() {
