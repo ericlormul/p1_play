@@ -3,7 +3,6 @@ import {ProgramService} from '../../shared/index';
 import {LoginService} from '../../shared/index';
 import {OnInit} from 'angular2/core';
 import {Router} from 'angular2/router';
-declare var Trumbowyg: any;
 
 @Component({
 	selector: 'person-admin',
@@ -26,7 +25,7 @@ export class PersonAdminComponent implements OnInit {
 		// if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
 		// 	this._router.navigate(['Home']);
 		// }
-		// $('#description').trumbowyg();
+		CKEDITOR.replace('description');
 	}
 
 	submitProgram() {

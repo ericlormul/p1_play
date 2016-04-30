@@ -12,7 +12,9 @@ export class ProjectConfig extends SeedConfig {
       {src: 'jquery/dist/jquery.min.js', inject: 'libs'},
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
       {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
-      {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true}
+      {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
+      {src: 'ckeditor/ckeditor.js', inject: 'libs'},
+      {src: 'ckeditor/contents.css', inject: true}
     ];
 
     const seedDependencies = this.NPM_DEPENDENCIES;
