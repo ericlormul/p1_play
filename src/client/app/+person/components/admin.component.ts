@@ -22,9 +22,9 @@ export class PersonAdminComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		// if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
-		// 	this._router.navigate(['Home']);
-		// }
+		if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
+			this._router.navigate(['Home']);
+		}
 		CKEDITOR.replace('description');
 	}
 
