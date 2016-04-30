@@ -20,7 +20,7 @@
 }
 
 .alert {
+  z-index: 1001;
   position: fixed;
   top: 1em;
-  z-index: 1001;
 }
