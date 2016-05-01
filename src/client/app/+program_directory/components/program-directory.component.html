@@ -18,8 +18,8 @@
 			<ul>
 			  <li *ngFor="#program of programsByCategory">
 			  	<a [routerLink]="['Program', {id: program.id}]">{{program.name}}</a>
-			  	<div class="text-success">{{program.homepage}}</div>
-			  	<div>{{program.description.substring(0, 340)+'...'}}</div>
+			  	<div class="text-success">{{program.website}}</div>
+			  	<div>{{program.summary.substring(0, 340)+'...'}}</div>
 			  </li>
 			</ul>  		
   	</div>

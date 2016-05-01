@@ -9,6 +9,6 @@
   <li *ngFor="#program of result">
   	<a [routerLink]="['Program', {id: program.id}]">{{program.name}}</a>
   	<div class="text-success">{{program.website}}</div>
-  	<div>{{program.description.substring(0, 340)+'...'}}</div>
+  	<div>{{program.summary.substring(0, 340)+'...'}}</div>
   </li>
 </ul>	
