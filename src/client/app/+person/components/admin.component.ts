@@ -14,7 +14,8 @@ import {Router} from 'angular2/router';
 export class PersonAdminComponent implements OnInit {
 	errorMessage:string;
 	program:any = {};
-	description: any;
+	session:any = {location:{}};
+	provider:any = {location:{}};
 	status = {success: false, fail: false };
 
 	constructor(
@@ -45,4 +46,8 @@ export class PersonAdminComponent implements OnInit {
 				setTimeout(() => this.status.fail=false, 3000);
 			});
 	}
+
+	submitSession() {}
+
+	submitProvider() {}
 }

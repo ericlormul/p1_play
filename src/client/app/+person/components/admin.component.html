@@ -1,5 +1,5 @@
 <div *ngIf="status.success" class="alert alert-success">
-  <strong>Success!</strong> New program has been created.
+  <strong>Success!</strong> New record has been created.
 </div>
 <div *ngIf="status.fail" class="alert alert-danger">
   <strong>Ooopus!</strong> Something wrong. Please check error message in console.
@@ -8,8 +8,9 @@
 <div class='form-tabs'>
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#program" aria-controls="home" role="tab" data-toggle="tab">Program</a></li>
-    <li role="presentation"><a href="#provider" aria-controls="profile" role="tab" data-toggle="tab">Provider</a></li>
+    <li role="presentation" class="active"><a href="#program" aria-controls="program" role="tab" data-toggle="tab">Program</a></li>
+    <li role="presentation"><a href="#session" aria-controls="session" role="tab" data-toggle="tab">Session</a></li>
+    <li role="presentation"><a href="#provider" aria-controls="provider" role="tab" data-toggle="tab">Provider</a></li>
   </ul>
 
   <!-- Tab panes -->
@@ -99,17 +100,182 @@
           <textarea rows="4" class="form-control" required placeholder="contact info" [(ngModel)]="program.contact_info"></textarea>
         </div>
 
-        <div class="form-group">
-          <button type="button" class="btn btn-info">
-            add session
-          </button>
-        </div>
-
         <button type="submit" class='btn btn-primary'>Submit</button>
       </form>
     </div>
 
-    <div role="tabpanel" class="tab-pane fade" id="provider">ccc.</div>
+    <div role="tabpanel" class="tab-pane fade" id="session">
+      <form (submit)="submitSession()">
+        <h3>Create new session</h3>
+        <hr>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="start date" required [(ngModel)]="session.start_date">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="end date" required [(ngModel)]="session.end_date">
+        </div>
+        <div class="form-group">
+          <textarea rows="4" class="form-control" required placeholder="description" [(ngModel)]="session.description">
+          </textarea>           
+        </div>
+
+        <div class="form-group">
+          <div class="form-inline">
+            <input type="text" class="form-control" placeholder="program id" required [(ngModel)]="session.program_id">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#programModal">
+              program
+            </button>             
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="programModal" tabindex="-1" role="dialog" aria-labelledby="programModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Select program</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="program-filter">
+                    <input type="text" class="form-control" placeholder="Key word" [(ngModel)] = "programKeyWord">
+                    <ul>
+                      <li>haha</li>
+                      <li>hehe</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#locationModal">
+            location
+          </button>             
+
+          <!-- Modal -->
+          <div class="modal fade" id="locationModal" tabindex="-1" role="dialog" aria-labelledby="locationModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">New session location</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <input type="text" class="form-control" required placeholder="address" [(ngModel)]="session.location.address">
+                    </div>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" required placeholder="city" [(ngModel)]="session.location.city">
+                    </div>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" required placeholder="state" [(ngModel)]="session.location.state">
+                    </div>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" required placeholder="zipcode" [(ngModel)]="session.location.zipcode">
+                    </div> 
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" required placeholder="country" [(ngModel)]="session.location.country">
+                    </div>                                                        
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>          
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="capacity" [(ngModel)]="session.capacity">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="start time of day" [(ngModel)]="session.start_time_of_day">
+        </div>        
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="end time of day" [(ngModel)]="session.end_time_of_day">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="duration" [(ngModel)]="session.duration">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="price" [(ngModel)]="session.price">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="currency mode" [(ngModel)]="session.currency_mode">
+        </div>        
+
+        <div class="form-group">
+          <textarea rows="4" class="form-control" placeholder="price detail" [(ngModel)]="session.price_detail">
+          </textarea>           
+        </div>  
+
+        <div class="form-group">
+          <textarea rows="4" class="form-control" placeholder="prerequisite" [(ngModel)]="session.prerequisite">
+          </textarea>           
+        </div>               
+
+        <div class="form-group">
+          <button type="submit" class='btn btn-primary'>Submit</button>
+        </div>
+      </form>
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="provider">
+      <form (submit)="submitProvider()">
+        <h3>Create new provider</h3>
+        <hr>
+
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="name" [(ngModel)]="provider.currency_mode">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="website" [(ngModel)]="provider.website">
+        </div> 
+        
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="address" [(ngModel)]="provider.location.address">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="city" [(ngModel)]="provider.location.city">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="state" [(ngModel)]="provider.location.state">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="zipcode" [(ngModel)]="provider.location.zipcode">
+        </div> 
+
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="country" [(ngModel)]="provider.location.country">
+        </div>                                                
+
+        <div class="form-group">
+          <button type="submit" class='btn btn-primary'>Submit</button>
+        </div>        
+      </form>
+    </div>
   </div>
 
 </div>
