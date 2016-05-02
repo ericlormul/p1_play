@@ -3,9 +3,12 @@
   padding: 0 16px;
 }
 
+.form-tabs {
+  margin: 0 100px 0 100px;
+}
+
 .form-program {
-  max-width: 800px;
-  margin: 0 auto 20px;
+  margin: 20px 0 0 0;
   padding: 19px 29px 29px;
   border: 1px solid #e5e5e5;
   border-radius: 5px;
@@ -23,4 +26,13 @@
   z-index: 1001;
   position: fixed;
   top: 1em;
+}
+
+ul {
+  list-style-type: none;
+  padding: 10px 0 0 0;
+}
+
+.provider-filter {
+  margin: 0 20px 0 20px;
 }

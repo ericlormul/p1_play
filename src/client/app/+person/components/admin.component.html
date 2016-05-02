@@ -5,57 +5,111 @@
   <strong>Ooopus!</strong> Something wrong. Please check error message in console.
 </div>
 
-<form class="form-program" (submit)="submitProgram()">
-	<h3>Create new program</h3>
-	<hr>
-  <div class="form-group">
-    <input type="text" class="form-control" required placeholder="name" [(ngModel)]="program.name">   
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" required placeholder="summary" [(ngModel)]="program.summary">   
-  </div>  
-  <div class="form-group">
-    <textarea id="description" rows="4" class="form-control" required >
-    </textarea>  
-  </div>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="primary photo id" [(ngModel)]="program.photo_id">
+<div class='form-tabs'>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#program" aria-controls="home" role="tab" data-toggle="tab">Program</a></li>
+    <li role="presentation"><a href="#provider" aria-controls="profile" role="tab" data-toggle="tab">Provider</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="program">
+      <form class="form-program" (submit)="submitProgram()">
+        <h3>Create new program</h3>
+        <hr>
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="name" [(ngModel)]="program.name">   
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="summary" [(ngModel)]="program.summary">   
+        </div>  
+        <div class="form-group">
+          <textarea id="description" rows="4" class="form-control" required >
+          </textarea>  
+        </div>
+
+        <div class="form-group">
+          <div class="form-inline">
+            <input type="text" class="form-control" placeholder="provider" [(ngModel)]="program.provider" required>          
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#providerModal">
+              provider
+            </button>            
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="providerModal" tabindex="-1" role="dialog" aria-labelledby="providerModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Select provider</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="provider-filter">
+                    <input type="text" class="form-control" placeholder="Key word" [(ngModel)] = "providerKeyWord">
+                    <ul>
+                      <li>haha</li>
+                      <li>hehe</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">         
+          <select class="form-control" [(ngModel)]="program.category">
+            <option disabled selected>Choose category</option>
+            <option>旅游</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" required placeholder="website url" [(ngModel)]="program.website">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="age start" [(ngModel)]="program.age_start">
+        </div>
+
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="age end" [(ngModel)]="program.age_end">
+        </div>
+
+        <div class="form-group">
+          <textarea rows="4" class="form-control" placeholder="refund policy" [(ngModel)]="program.refund_policy"></textarea>  
+        </div>
+
+        <div class="form-group">
+          <textarea rows="4" class="form-control" placeholder="syllabus" [(ngModel)]="program.syllabus"></textarea>
+        </div>
+
+        <div class="form-group">
+          <textarea rows="4" class="form-control" placeholder="application detail" [(ngModel)]="program.application_detail"></textarea>
+        </div>  
+
+        <div class="form-group">
+          <textarea rows="4" class="form-control" required placeholder="contact info" [(ngModel)]="program.contact_info"></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="button" class="btn btn-info">
+            add session
+          </button>
+        </div>
+
+        <button type="submit" class='btn btn-primary'>Submit</button>
+      </form>
+    </div>
+
+    <div role="tabpanel" class="tab-pane fade" id="provider">ccc.</div>
   </div>
 
-  <div class="form-group">
-    <input type="text" class="form-control" required placeholder="provider id" [(ngModel)]="program.provider_id">
-  </div>
-
-  <div class="form-group">
-    <input type="text" class="form-control" required placeholder="website url" [(ngModel)]="program.website">
-  </div>
-
-  <div class="form-group">
-    <input type="text" class="form-control" required placeholder="category" [(ngModel)]="program.category">
-  </div>  
-
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="age start" [(ngModel)]="program.age_start">
-  </div>
-
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="age end" [(ngModel)]="program.age_end">
-  </div>
-
-  <div class="form-group">
-    <textarea rows="4" class="form-control" placeholder="refund policy" [(ngModel)]="program.refund_policy"></textarea>  
-  </div>
-
-  <div class="form-group">
-    <textarea rows="4" class="form-control" placeholder="syllabus" [(ngModel)]="program.syllabus"></textarea>
-  </div>
-
-  <div class="form-group">
-    <textarea rows="4" class="form-control" placeholder="application detail" [(ngModel)]="program.application_detail"></textarea>
-  </div>  
-
-  <div class="form-group">
-    <textarea rows="4" class="form-control" required placeholder="contact info" [(ngModel)]="program.contact_info"></textarea>
-  </div>
-  <button type="submit" class='btn btn-primary'>Submit</button>
-</form>
+</div>
