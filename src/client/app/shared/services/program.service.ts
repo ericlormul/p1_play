@@ -1,6 +1,5 @@
 import {Injectable} from 'angular2/core';
 import {Http} from 'angular2/http';
-import {Headers, RequestOptions} from 'angular2/http';
 import {APIService} from '../index';
 
 @Injectable()
@@ -12,13 +11,8 @@ export class ProgramService extends APIService {
 	}
 
 	create(program:any, token:string) {
-		let body = JSON.stringify({program: program});
-		let headers = new Headers({
-			'Content-Type': 'application/json',
-			'Authorization': 'Token token='+ token
-		});
-
-		let options = new RequestOptions({ headers: headers });
+		let body = this.stringifyBody(program);
+		let options = this.optionsWithToken(token);
 
 		return this.http.post(this.getUrl(this.url + 'create'), body, options)
 			.map(this.extractData)
@@ -41,6 +35,15 @@ export class ProgramService extends APIService {
 		return this.http.get(this.getUrl(this.url + 'category/' + category))
 										.map(this.extractData)
 										.catch(this.handleError);
+	}
+
+	update(program:any, token:string) {
+		let body = this.stringifyBody(program);
+		let options = this.optionsWithToken(token);
+
+		return this.http.post(this.getUrl(this.url + 'update'), body, options)
+			.map(this.extractData)
+			.catch(this.handleError);
 	}
 
 	private formatFullTextQuery(raw_query: string) {

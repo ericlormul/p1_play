@@ -17,8 +17,16 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="program">
       <form class="form-program" (submit)="submitProgram()">
-        <h3>Create new program</h3>
+        <h3>Program</h3>
         <hr>
+        <div class="form-group">
+          <div class="form-inline">
+            <input type="text" class="form-control" placeholder="id" [(ngModel)]="program.id">
+            <button type="button" class="btn btn-primary" (click)="getProgram()">
+              get program
+            </button>               
+          </div>
+        </div>        
         <div class="form-group">
           <input type="text" class="form-control" required placeholder="name" [(ngModel)]="program.name">   
         </div>
@@ -51,8 +59,9 @@
                   <div class="provider-filter">
                     <input type="text" class="form-control" placeholder="Key word" [(ngModel)] = "providerKeyWord">
                     <ul>
-                      <li>haha</li>
-                      <li>hehe</li>
+                      <li *ngFor="#provider of (providers | startsWith:providerKeyWord)">
+                        <a (click)="selectProvider(provider.id)">{{provider.name}}</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -68,10 +77,12 @@
         <div class="form-group">         
           <select class="form-control" [(ngModel)]="program.category">
             <option disabled selected>Choose category</option>
-            <option>旅游</option>
+            <option *ngFor="#category of categories" value="{{category.id}}">
+              {{category.name}}{{category.id}}
+            </option>
           </select>
         </div>
-
+        <p>{{program | json}}</p>
         <div class="form-group">
           <input type="text" class="form-control" required placeholder="website url" [(ngModel)]="program.website">
         </div>
@@ -106,8 +117,16 @@
 
     <div role="tabpanel" class="tab-pane fade" id="session">
       <form (submit)="submitSession()">
-        <h3>Create new session</h3>
+        <h3>Session</h3>
         <hr>
+        <div class="form-group">
+          <div class="form-inline">
+            <input type="text" class="form-control" placeholder="id" [(ngModel)]="session.id">
+            <button type="button" class="btn btn-primary" (click)="getSession()">
+              get session
+            </button>               
+          </div>
+        </div>         
         <div class="form-group">
           <input type="text" class="form-control" placeholder="start date" required [(ngModel)]="session.start_date">
         </div>
@@ -240,8 +259,16 @@
 
     <div role="tabpanel" class="tab-pane fade" id="provider">
       <form (submit)="submitProvider()">
-        <h3>Create new provider</h3>
+        <h3>Provider</h3>
         <hr>
+        <div class="form-group">
+          <div class="form-inline">
+            <input type="text" class="form-control" placeholder="id" [(ngModel)]="provider.id">
+            <button type="button" class="btn btn-primary" (click)="getProvider()">
+              get program
+            </button>               
+          </div>
+        </div>         
 
         <div class="form-group">
           <input type="text" class="form-control" required placeholder="name" [(ngModel)]="provider.currency_mode">

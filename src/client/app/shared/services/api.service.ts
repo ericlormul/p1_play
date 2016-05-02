@@ -1,4 +1,4 @@
-import {Http, Response} from 'angular2/http';
+import {Http, Response, Headers, RequestOptions} from 'angular2/http';
 import {Observable}     from 'rxjs/Observable';
 
 export abstract class APIService {
@@ -22,5 +22,17 @@ export abstract class APIService {
     let errMsg = error.message || 'Server error';
     console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);
+  }
+
+  optionsWithToken(token:string) {
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'Authentication': 'Token token=' + token
+    });
+    return new RequestOptions({headers: headers});
+  }
+
+  stringifyBody(body: any) {
+    return JSON.stringify(body);
   }
 }
