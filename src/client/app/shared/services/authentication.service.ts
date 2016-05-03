@@ -24,7 +24,8 @@ export class AuthenticationService extends APIService {
 		let headers = new Headers({ 'Authorization': 'Basic '+window.btoa(email+':'+password)});
 		let options = new RequestOptions({ headers: headers });
 
-		return this.http.get(this.getUrl('authentication'), options)
+			return this.http.get(this.getUrl('authentication'), options)
+		// return this.http.get('assets/person.json')
 			.map(this.extractData)
 			.catch(this.handleError);
 	}

@@ -27,7 +27,7 @@ export abstract class APIService {
   optionsWithToken(token:string) {
     let headers = new Headers({
       'Content-Type': 'application/json',
-      'Authentication': 'Token token=' + token
+      'Authorization': 'Token token=' + token
     });
     return new RequestOptions({headers: headers});
   }

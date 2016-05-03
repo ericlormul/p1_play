@@ -1,5 +1,5 @@
 <div *ngIf="status.success" class="alert alert-success">
-  <strong>Success!</strong> New record has been created.
+  <strong>Success!</strong> {{msg.success}}
 </div>
 <div *ngIf="status.fail" class="alert alert-danger">
   <strong>Ooopus!</strong> Something wrong. Please check error message in console.
@@ -31,7 +31,7 @@
           <input type="text" class="form-control" required placeholder="name" [(ngModel)]="program.name">   
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" required placeholder="summary" [(ngModel)]="program.summary">   
+          <textarea class="form-control" required placeholder="summary" [(ngModel)]="program.summary"></textarea>  
         </div>  
         <div class="form-group">
           <textarea id="description" rows="4" class="form-control" required >
@@ -40,9 +40,9 @@
 
         <div class="form-group">
           <div class="form-inline">
-            <input type="text" class="form-control" placeholder="provider" [(ngModel)]="program.provider" required>          
+            <input type="text" class="form-control" placeholder="provider" [(ngModel)]="program.provider_id" required>          
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#providerModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#providerModal" (click)="getProviders()">
               provider
             </button>            
           </div>
@@ -67,7 +67,6 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -78,11 +77,10 @@
           <select class="form-control" [(ngModel)]="program.category">
             <option disabled selected>Choose category</option>
             <option *ngFor="#category of categories" value="{{category.id}}">
-              {{category.name}}{{category.id}}
+              {{category.name}}
             </option>
           </select>
         </div>
-        <p>{{program | json}}</p>
         <div class="form-group">
           <input type="text" class="form-control" required placeholder="website url" [(ngModel)]="program.website">
         </div>
@@ -121,26 +119,26 @@
         <hr>
         <div class="form-group">
           <div class="form-inline">
-            <input type="text" class="form-control" placeholder="id" [(ngModel)]="session.id">
+            <input type="text" class="form-control" placeholder="id" [(ngModel)]="session.session.id">
             <button type="button" class="btn btn-primary" (click)="getSession()">
               get session
             </button>               
           </div>
         </div>         
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="start date" required [(ngModel)]="session.start_date">
+          <input type="text" class="form-control" placeholder="start date" required [(ngModel)]="session.session.start_date">
         </div>
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="end date" required [(ngModel)]="session.end_date">
+          <input type="text" class="form-control" placeholder="end date" required [(ngModel)]="session.session.end_date">
         </div>
         <div class="form-group">
-          <textarea rows="4" class="form-control" required placeholder="description" [(ngModel)]="session.description">
+          <textarea rows="4" class="form-control" required placeholder="description" [(ngModel)]="session.session.description">
           </textarea>           
         </div>
 
         <div class="form-group">
           <div class="form-inline">
-            <input type="text" class="form-control" placeholder="program id" required [(ngModel)]="session.program_id">
+            <input type="text" class="form-control" placeholder="program id" required [(ngModel)]="session.session.program_id">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#programModal">
               program
             </button>             
@@ -156,16 +154,20 @@
                 </div>
                 <div class="modal-body">
                   <div class="program-filter">
-                    <input type="text" class="form-control" placeholder="Key word" [(ngModel)] = "programKeyWord">
+                    <div class="form-inline">
+                      <input type="text" class="form-control" placeholder="Key word" [(ngModel)] = "programKeyWord">
+                      <button type="button" class="btn btn-primary" (click)="searchProgram(programKeyWord)">Search</button>
+                    </div>
+
                     <ul>
-                      <li>haha</li>
-                      <li>hehe</li>
+                      <li *ngFor="#program of programs">
+                        <a (click)="selectProgram(program.id)">{{program.name}}</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -210,7 +212,6 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
               </div>
             </div>
@@ -218,36 +219,36 @@
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="capacity" [(ngModel)]="session.capacity">
+          <input type="text" class="form-control" placeholder="capacity" [(ngModel)]="session.session.capacity">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="start time of day" [(ngModel)]="session.start_time_of_day">
+          <input type="text" class="form-control" placeholder="start time of day" [(ngModel)]="session.session.start_time_of_day">
         </div>        
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="end time of day" [(ngModel)]="session.end_time_of_day">
+          <input type="text" class="form-control" placeholder="end time of day" [(ngModel)]="session.session.end_time_of_day">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="duration" [(ngModel)]="session.duration">
+          <input type="text" class="form-control" placeholder="duration" [(ngModel)]="session.session.duration">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="price" [(ngModel)]="session.price">
+          <input type="text" class="form-control" placeholder="price" [(ngModel)]="session.session.price">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="currency mode" [(ngModel)]="session.currency_mode">
+          <input type="text" class="form-control" placeholder="currency mode" [(ngModel)]="session.session.currency_code">
         </div>        
 
         <div class="form-group">
-          <textarea rows="4" class="form-control" placeholder="price detail" [(ngModel)]="session.price_detail">
+          <textarea rows="4" class="form-control" placeholder="price detail" [(ngModel)]="session.session.price_details">
           </textarea>           
         </div>  
 
         <div class="form-group">
-          <textarea rows="4" class="form-control" placeholder="prerequisite" [(ngModel)]="session.prerequisite">
+          <textarea rows="4" class="form-control" placeholder="prerequisite" [(ngModel)]="session.session.prerequisite">
           </textarea>           
         </div>               
 
@@ -263,19 +264,19 @@
         <hr>
         <div class="form-group">
           <div class="form-inline">
-            <input type="text" class="form-control" placeholder="id" [(ngModel)]="provider.id">
+            <input type="text" class="form-control" placeholder="id" [(ngModel)]="provider.provider.id">
             <button type="button" class="btn btn-primary" (click)="getProvider()">
-              get program
+              get provider
             </button>               
           </div>
         </div>         
 
         <div class="form-group">
-          <input type="text" class="form-control" required placeholder="name" [(ngModel)]="provider.currency_mode">
+          <input type="text" class="form-control" required placeholder="name" [(ngModel)]="provider.provider.name">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" required placeholder="website" [(ngModel)]="provider.website">
+          <input type="text" class="form-control" required placeholder="website" [(ngModel)]="provider.provider.website">
         </div> 
         
         <div class="form-group">

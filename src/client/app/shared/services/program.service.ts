@@ -11,7 +11,7 @@ export class ProgramService extends APIService {
 	}
 
 	create(program:any, token:string) {
-		let body = this.stringifyBody(program);
+		let body = this.stringifyBody({program: program});
 		let options = this.optionsWithToken(token);
 
 		return this.http.post(this.getUrl(this.url + 'create'), body, options)
@@ -38,7 +38,7 @@ export class ProgramService extends APIService {
 	}
 
 	update(program:any, token:string) {
-		let body = this.stringifyBody(program);
+		let body = this.stringifyBody({program: program});
 		let options = this.optionsWithToken(token);
 
 		return this.http.post(this.getUrl(this.url + 'update'), body, options)

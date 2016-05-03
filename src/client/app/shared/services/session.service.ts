@@ -4,7 +4,7 @@ import {APIService} from '../index';
 
 @Injectable()
 export class SessionService extends APIService {
-	url = 'session/';
+	url = 'sessions/';
 
 	constructor(http:Http) {
 		super(http);
