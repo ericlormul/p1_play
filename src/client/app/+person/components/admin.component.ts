@@ -35,10 +35,10 @@ export class PersonAdminComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		// if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
-		// 	this._router.navigate(['Home']);
-		// 	return;
-		// }
+		if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
+			this._router.navigate(['Home']);
+			return;
+		}
 
 		// this.categoryService.getAll()
 		// 										.subscribe((categories) => {
