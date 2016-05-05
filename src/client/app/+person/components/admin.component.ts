@@ -35,10 +35,10 @@ export class PersonAdminComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
-			this._router.navigate(['Home']);
-			return;
-		}
+		// if(!this.loginService.getPerson() || this.loginService.getRole() !== 'admin') {
+		// 	this._router.navigate(['Home']);
+		// 	return;
+		// }
 
 		// this.categoryService.getAll()
 		// 										.subscribe((categories) => {
@@ -46,7 +46,7 @@ export class PersonAdminComponent implements OnInit {
 		// 										}, error => {
 		// 											this.errorMessage = error;
 		// 										});
-
+		$('.datepicker').pickadate();
 		this.description = CKEDITOR.replace('description');
 		this.description.on( 'change', (evt: any) => this.program.description = evt.editor.getData()
 		);

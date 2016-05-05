@@ -13,8 +13,12 @@ export class ProjectConfig extends SeedConfig {
       // {src: 'lodash/lodash.min.js', inject: 'libs'},
       {src: 'bootstrap/dist/js/bootstrap.min.js', inject: 'libs'},
       {src: 'bootstrap/dist/css/bootstrap.min.css', inject: true},
-      // {src: 'ckeditor/ckeditor.js', inject: 'libs'},
-      // {src: 'ckeditor/contents.css', inject: true}
+      {src: 'ckeditor/ckeditor.js', inject: 'libs'},
+      {src: 'ckeditor/contents.css', inject: true},
+      {src: 'pickadate/lib/picker.js', inject: 'libs'},
+      {src: 'pickadate/lib/picker.date.js', inject: 'libs'},
+      {src: 'pickadate/lib/themes/default.css', inject: true},
+      {src: 'pickadate/lib/themes/default.date.css', inject: true}
     ];
 
     const seedDependencies = this.NPM_DEPENDENCIES;

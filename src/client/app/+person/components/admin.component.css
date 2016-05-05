@@ -36,3 +36,7 @@ ul {
 .provider-filter {
   margin: 0 20px 0 20px;
 }
+
+.form-control[readonly] {
+  background-color: white;
+}
